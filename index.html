@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mens Cycle Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Menstrual Cycle Tracker</h1>
+
+    <section class="card" id="authCard">
+      <h2>User Account</h2>
+      <form id="authForm">
+        <label>Email
+          <input type="email" id="email" required placeholder="you@example.com" />
+        </label>
+        <label>Password
+          <input type="password" id="password" required minlength="6" placeholder="At least 6 characters" />
+        </label>
+        <button type="submit">Login / Create Account</button>
+      </form>
+      <p class="muted">Data is encrypted in your browser with your password-derived key.</p>
+      <p id="authStatus" class="status"></p>
+    </section>
+
+    <section class="card hidden" id="trackerCard">
+      <div class="row between">
+        <h2>Cycle Tracking</h2>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+      <form id="cycleForm" class="grid">
+        <label>Last period start date
+          <input type="date" id="lastPeriodStart" required />
+        </label>
+        <label>Period length (days)
+          <input type="number" id="periodLength" min="1" max="14" required value="5" />
+        </label>
+        <label>Cycle length (days)
+          <input type="number" id="cycleLength" min="20" max="45" required value="28" />
+        </label>
+        <button type="submit">Save & Predict</button>
+      </form>
+
+      <div id="predictions" class="predictions"></div>
+    </section>
+
+    <section class="card hidden" id="calendarCard">
+      <h2>Calendar View</h2>
+      <div id="calendarLegend" class="legend">
+        <span><i class="dot period"></i>Period</span>
+        <span><i class="dot fertile"></i>Fertile window</span>
+        <span><i class="dot ovulation"></i>Ovulation</span>
+      </div>
+      <div id="calendar" class="calendar"></div>
+    </section>
+
+    <section class="card hidden" id="dailyLogCard">
+      <h2>Daily Logs</h2>
+      <form id="logForm" class="grid">
+        <label>Date
+          <input type="date" id="logDate" required />
+        </label>
+        <label>Mood
+          <input type="text" id="mood" placeholder="e.g. calm" />
+        </label>
+        <label>Symptoms
+          <input type="text" id="symptoms" placeholder="e.g. cramps, headache" />
+        </label>
+        <label>Flow
+          <select id="flow">
+            <option value="">None</option>
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </label>
+        <label class="full">Notes
+          <textarea id="notes" rows="3" placeholder="Any notes"></textarea>
+        </label>
+        <button type="submit">Save Daily Log</button>
+      </form>
+      <div id="logs" class="logs"></div>
+    </section>
+
+    <section class="card hidden" id="remindersCard">
+      <h2>Reminders</h2>
+      <form id="reminderForm" class="grid">
+        <label><input type="checkbox" id="periodReminder" checked /> Period reminder (2 days before)</label>
+        <label><input type="checkbox" id="ovulationReminder" checked /> Ovulation reminder (1 day before)</label>
+        <button type="submit">Save Reminder Preferences</button>
+      </form>
+      <div id="reminderList"></div>
+    </section>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
