@@ -1,0 +1,63 @@
+:root {
+  --bg: #f8f5ff;
+  --card: #ffffff;
+  --text: #21193a;
+  --muted: #726b8b;
+  --accent: #7a4dff;
+  --period: #ff6b8a;
+  --fertile: #77d970;
+  --ovulation: #ffaa33;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.container { max-width: 960px; margin: 2rem auto; padding: 0 1rem 2rem; }
+h1 { text-align: center; }
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 6px 20px rgba(60, 39, 139, 0.08);
+}
+.grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.full { grid-column: 1 / -1; }
+label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.95rem; }
+input, select, textarea, button {
+  border: 1px solid #d8d1ee;
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+}
+button { background: var(--accent); color: #fff; border: none; cursor: pointer; }
+button.secondary { background: #ece7ff; color: #402ea0; }
+button:hover { filter: brightness(0.96); }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.status { margin-top: 0.4rem; min-height: 1.2rem; }
+.row { display: flex; align-items: center; gap: 1rem; }
+.between { justify-content: space-between; }
+.hidden { display: none; }
+.predictions p { margin: 0.25rem 0; }
+.calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.4rem; }
+.day {
+  padding: 0.6rem;
+  border: 1px solid #e8e3f7;
+  border-radius: 8px;
+  min-height: 62px;
+  background: #fff;
+}
+.day .num { font-weight: 600; }
+.day.period { background: #ffe5ed; border-color: #ffc8d7; }
+.day.fertile { background: #ebffe9; border-color: #c7f5c2; }
+.day.ovulation { background: #fff3e2; border-color: #ffd9a8; }
+.legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.4rem 0 0.8rem; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 0.35rem; }
+.dot.period { background: var(--period); }
+.dot.fertile { background: var(--fertile); }
+.dot.ovulation { background: var(--ovulation); }
+.logs ul { margin: 0.6rem 0 0; padding-left: 1rem; }
+.logs li { margin: 0.4rem 0; }
